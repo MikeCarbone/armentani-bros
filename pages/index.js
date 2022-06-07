@@ -688,6 +688,12 @@ const Songkick = () => {
 					margin: 0 auto;
 					padding: 50px;
 				}
+
+				@media screen and (max-width: 800px) {
+					.tour-dates-container {
+						padding: 50px 0;
+					}
+				}
 			`}</style>
 		</Section>
 	)
