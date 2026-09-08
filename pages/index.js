@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
 
-import Fade from 'react-reveal/Fade'
+import Fade from '../components/Fade'
 
 import LoadingCover from '../components/LoadingCover'
 import VertSpace from '../components/VertSpace'
@@ -19,21 +19,29 @@ export default function Home() {
 	useEffect(() => {
 		handleLowPower()
 
-		setTimeout(() => {
+		const loadingTimer = setTimeout(() => {
 			setLoading(false)
 		}, 500)
 
-		setTimeout(() => {
-			document.getElementById('bg-video').play()
+		const playTimer = setTimeout(() => {
+			document.getElementById('bg-video')?.play()?.catch(() => {})
 		}, 1000)
 
+		return () => {
+			clearTimeout(loadingTimer)
+			clearTimeout(playTimer)
+		}
 	}, [])
 
   	return (
 		<>
+			<Head>
+				<title>The Armentani Brothers</title>
+				<meta name="description" content="The Armentani Brothers are a DJ trio from the City of Brotherly Love. They look forward to releasing a ton of music and creative content for everyone soon!" />
+			</Head>
 			<div className="hidden-ux">
 				<LoadingCover loading={loading} />
-				<video id="bg-video" poster="/vegas2.jpg" className="media" autoPlay={true} loop={true} muted={true} src="/watts-trimmed-min.mp4" playsInline={true} default-muted="true" />
+				<video id="bg-video" poster="/vegas2.jpg" className="media" autoPlay={true} loop={true} muted={true} src="/watts-trimmed-min.mp4" playsInline={true} />
 				<img id="bg-img" className="media" src="/vegas2.jpg" width="100vw" height="100vh" alt="" />
 
 				<div className="cover"></div>
