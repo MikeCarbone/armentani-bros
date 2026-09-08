@@ -8,12 +8,13 @@ const LoadingCover = props => {
 
     // Hides elements after their operations are done
     useEffect(() => {
-        return loading === false
-        ?
-            setTimeout(() => {
-                setDoneExecuting(true);
-            }, 1500)
-        : null
+        if (loading !== false) {
+            return undefined
+        }
+        const timeoutId = setTimeout(() => {
+            setDoneExecuting(true);
+        }, 1500)
+        return () => clearTimeout(timeoutId)
     }, [loading]);
 
     const doneClass         = doneExecuting         ? 'inactive'        : '';

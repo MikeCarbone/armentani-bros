@@ -19,14 +19,18 @@ export default function Home() {
 	useEffect(() => {
 		handleLowPower()
 
-		setTimeout(() => {
+		const loadingTimer = setTimeout(() => {
 			setLoading(false)
 		}, 500)
 
-		setTimeout(() => {
-			document.getElementById('bg-video').play()
+		const playTimer = setTimeout(() => {
+			document.getElementById('bg-video')?.play()?.catch(() => {})
 		}, 1000)
 
+		return () => {
+			clearTimeout(loadingTimer)
+			clearTimeout(playTimer)
+		}
 	}, [])
 
   	return (
