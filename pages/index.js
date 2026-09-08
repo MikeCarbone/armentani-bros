@@ -465,7 +465,7 @@ const Bio = () => {
 
 const Media = () => {
 	const height = '650px'
-	const images = ['/vegas1.jpg', '/vegas2.jpg', '/vegas3.jpg', '/vegas4.jpg', '/trio1.jpg', '/trio2.jpg', '/trio3.jpg', '/trio4.jpg', '/trio5.jpg', '/trio6.jpg', '/bros-checkered.jpg', '/bros-outdoor-u.jpg', '/bros-dj-booth.jpg'].map(i => {
+	const images = ['/bros-checkered.jpg', '/bros-outdoor-u.jpg', '/bros-dj-booth.jpg', '/vegas1.jpg', '/vegas2.jpg', '/vegas3.jpg', '/vegas4.jpg', '/trio1.jpg', '/trio2.jpg', '/trio3.jpg', '/trio4.jpg', '/trio5.jpg', '/trio6.jpg'].map(i => {
 		return {
 			original: i,
 			thumbnail: i,
