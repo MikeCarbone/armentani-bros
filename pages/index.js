@@ -414,22 +414,19 @@ const Bio = () => {
 					<div className="cont">
 						<div>
 							<Copy>
-								The Armentani Brothers are a DJ trio from the City of Brotherly Love. Their musical passion started from a young age, playing multiple instruments such as the piano, guitar, drums and many others. All of the brothers started as individual artists and performers before combining into a trio. John and Jimmie were inspired by their older brother George when he took over the Philadelphia EDM scene by storm in his early college years. 
+								Hailing from Philadelphia, PA, The Armentani Brothers (George, Jimmie, and John) are an international DJ trio delivering high octane dance music to stages across the globe. Built on a foundation of brotherhood and a shared obsession with electronic music that began when George attended a life-changing Deadmau5 concert at age 13, all three brothers eventually joined forces to create an unstoppable live performance experience. What started as individual passions evolved into a powerhouse trio, blending three unique creative styles into one seamless, high-energy show.
 							</Copy>
 							<Copy>
-								Together, they have headlined numerous shows, packing clubs and venues all over the United States. Previously, they have played alongside artists such as Steve Aoki, Kaskade, Two Friends, Galantis, W&W and many other familiar names in the EDM scene. 
+								With millions of streams worldwide, their explosive debut single &quot;Next to You&quot; and viral remixes have propelled them onto the global stage. Their sound has earned heavy rotation and direct support from dance music heavyweights including Steve Aoki, Kaskade, Galantis, Oliver Heldens, W&amp;W, DJs From Mars, and Two Friends. Rapidly becoming a staple in the modern EDM landscape, their catalog continues to dominate dance floors and digital platforms alike.
 							</Copy>
 							<Copy>
-								Their hit debut single, &quot;Next to You&quot;, has amassed over 500,000 streams across various platforms and has been supported by artists such as Disco Fries, Tony Arzadon, and Maria Zouroudis.
+								On stage, The Armentani Brothers deliver an unforgettable festival level atmosphere fueled by dynamic multi DJ chemistry, relentless crowd engagement, and infectious, turn it up energy. Designed to keep dance floors packed from start to finish, their signature sound seamlessly bridges hard-hitting club anthems, crowd favorite mashups, and melodically rich original productions. Whether commanding mainstages at major festivals, electrifying world-class nightclubs, or headlining exclusive private events, they consistently deliver a high value performance that leaves audiences wanting more.
 							</Copy>
 							<Copy>
-								&quot;Next to You&quot; was followed by their second successful single, &quot;Better Than This&quot; featuring Zoobstool. Amassing over 400,000 streams across various platforms and being played at live shows across the country time and time again. 
-							</Copy>
-							<Copy>
-								They look forward to releasing a ton of music and creative content for everyone soon!
+								Always creating, evolving, and pushing boundaries, The Armentani Brothers are cementing their status as one of dance music&apos;s most exciting acts and they are just getting started.
 							</Copy>
 						</div>
-						<img className="bio__img" src="/behind.jpg" alt="Armentani Brothers" />
+						<img className="bio__img" src="/bros-dj-booth.jpg" alt="Armentani Brothers" />
 					</div>
 				</Fade>
 			</Section>
@@ -468,7 +465,7 @@ const Bio = () => {
 
 const Media = () => {
 	const height = '650px'
-	const images = ['/vegas1.jpg', '/vegas2.jpg', '/vegas3.jpg', '/vegas4.jpg', '/trio1.jpg', '/trio2.jpg', '/trio3.jpg', '/trio4.jpg', '/trio5.jpg', '/trio6.jpg'].map(i => {
+	const images = ['/vegas1.jpg', '/vegas2.jpg', '/vegas3.jpg', '/vegas4.jpg', '/trio1.jpg', '/trio2.jpg', '/trio3.jpg', '/trio4.jpg', '/trio5.jpg', '/trio6.jpg', '/bros-checkered.jpg', '/bros-outdoor-u.jpg', '/bros-dj-booth.jpg'].map(i => {
 		return {
 			original: i,
 			thumbnail: i,
