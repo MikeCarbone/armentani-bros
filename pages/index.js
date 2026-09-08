@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
 
-import Fade from 'react-reveal/Fade'
+import Fade from '../components/Fade'
 
 import LoadingCover from '../components/LoadingCover'
 import VertSpace from '../components/VertSpace'
@@ -31,6 +31,10 @@ export default function Home() {
 
   	return (
 		<>
+			<Head>
+				<title>The Armentani Brothers</title>
+				<meta name="description" content="The Armentani Brothers are a DJ trio from the City of Brotherly Love. They look forward to releasing a ton of music and creative content for everyone soon!" />
+			</Head>
 			<div className="hidden-ux">
 				<LoadingCover loading={loading} />
 				<video id="bg-video" poster="/vegas2.jpg" className="media" autoPlay={true} loop={true} muted={true} src="/watts-trimmed-min.mp4" playsInline={true} />

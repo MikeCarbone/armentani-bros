@@ -18,11 +18,7 @@ class MyDocument extends Document {
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
             <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
-
-            <title>{title}</title>
             <meta name="description" content={description} />
-
-            <title key="title">{title}</title>
             <meta key="desc" name="description" content={description} />
             <meta key="og-title" property="og:title" content={title} />
             <meta key="og-image" property="og:image" content={image} />
