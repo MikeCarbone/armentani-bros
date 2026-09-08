@@ -33,7 +33,7 @@ export default function Home() {
 		<>
 			<div className="hidden-ux">
 				<LoadingCover loading={loading} />
-				<video id="bg-video" poster="/vegas2.jpg" className="media" autoPlay={true} loop={true} muted={true} src="/watts-trimmed-min.mp4" playsInline={true} default-muted="true" />
+				<video id="bg-video" poster="/vegas2.jpg" className="media" autoPlay={true} loop={true} muted={true} src="/watts-trimmed-min.mp4" playsInline={true} />
 				<img id="bg-img" className="media" src="/vegas2.jpg" width="100vw" height="100vh" alt="" />
 
 				<div className="cover"></div>
