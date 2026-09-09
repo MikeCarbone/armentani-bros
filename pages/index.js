@@ -235,7 +235,7 @@ const Borders = () => {
 
 const Logos = ({
 	size = '22px',
-	scSize = '20px',
+	scSize = size,
 	color = '#737373',
 	delay = 1500,
 	spread = '15px 11px'
@@ -270,20 +270,31 @@ const Logos = ({
 				</a>
 			</Fade>
 			<style jsx>{`
+				a {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					line-height: 0;
+				}
+
 				svg {
 					fill: ${color};
 					height: ${size};
+					width: ${size};
 					margin: ${spread};
-					transition: all .15s ease-in;
+					transition: fill .15s ease-in;
+					vertical-align: middle;
 				}
 
+				/* Cloud sits low in the Simple Icons viewBox — nudge to optical center */
 				.sc {
-					height: ${scSize};
+					height: ${size};
+					width: ${size};
+					transform: translateY(-6%);
 				}
 
 				svg:hover {
 					fill: #fff;
-					transition: all .15s ease-in;
 				}
 			`}</style>
 		</>
@@ -403,7 +414,7 @@ const Stream = () => {
 		<>
 			<Section id="connect" title="CONNECT">
 				<div className="logo-cont">
-					<Logos size="50px" scSize="85px" delay={0} spread="35px 35px" />
+					<Logos size="50px" delay={0} spread="35px 35px" />
 				</div>
 			</Section>
 			<style jsx>{`
