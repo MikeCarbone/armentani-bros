@@ -351,18 +351,22 @@ const Bros = () => {
 					gap: 0;
 				}
 
-				/* Fade root is the flex item — flex-grow animates smoother than width */
+				/* Width animates reliably; include opacity so Fade does not need an inline transition */
 				.bro-cont :global(.bro) {
 					position: relative;
-					flex: 1 1 0;
-					min-width: 0;
+					flex: 0 0 auto;
+					width: 33.333%;
 					height: 500px;
 					overflow: hidden;
-					transition: flex-grow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+					transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
+				}
+
+				.bro-cont:hover :global(.bro) {
+					width: 28%;
 				}
 
 				.bro-cont :global(.bro):hover {
-					flex-grow: 1.65;
+					width: 44%;
 				}
 
 				.bro-cont :global(.bro__img) {
@@ -390,17 +394,14 @@ const Bros = () => {
 						flex-direction: column;
 					}
 
-					.bro-cont :global(.bro) {
+					.bro-cont :global(.bro),
+					.bro-cont:hover :global(.bro),
+					.bro-cont :global(.bro):hover {
 						flex: none;
 						width: 100%;
 						height: 300px;
 						margin: 25px 0 0 0;
-						transition: none;
-					}
-
-					.bro-cont :global(.bro):hover {
-						flex-grow: 1;
-						width: 100%;
+						transition: opacity 0.7s ease;
 					}
 				}
 			`}</style>
