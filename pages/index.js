@@ -235,7 +235,7 @@ const Borders = () => {
 
 const Logos = ({
 	size = '22px',
-	scSize = '20px',
+	scSize = size,
 	color = '#737373',
 	delay = 1500,
 	spread = '15px 11px'
@@ -270,20 +270,31 @@ const Logos = ({
 				</a>
 			</Fade>
 			<style jsx>{`
+				a {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					line-height: 0;
+				}
+
 				svg {
 					fill: ${color};
 					height: ${size};
+					width: ${size};
 					margin: ${spread};
-					transition: all .15s ease-in;
+					transition: fill .15s ease-in;
+					vertical-align: middle;
 				}
 
+				/* Cloud sits low in the Simple Icons viewBox — nudge to optical center */
 				.sc {
-					height: ${scSize};
+					height: ${size};
+					width: ${size};
+					transform: translateY(-6%);
 				}
 
 				svg:hover {
 					fill: #fff;
-					transition: all .15s ease-in;
 				}
 			`}</style>
 		</>
@@ -313,28 +324,22 @@ const Bros = () => {
 	return (
 		<Section id="the-boys" title="MEET THE BOYS">
 			<div className="bro-cont">
-				<Fade>
-					<div className="bro">
-						<img className="bro__img" src="/jimmie.jpg" alt="Jimmie"></img>
-						<div className="label">
-							<Heading level={2}>JIMMIE</Heading>
-						</div>
+				<Fade className="bro">
+					<img className="bro__img" src="/jimmie.jpg" alt="Jimmie"></img>
+					<div className="label">
+						<Heading level={2}>JIMMIE</Heading>
 					</div>
 				</Fade>
-				<Fade>
-					<div className="bro">
-						<img className="bro__img" src="/george.jpg" alt="George"></img>
-						<div className="label">
-							<Heading level={2}>GEORGE</Heading>
-						</div>
+				<Fade className="bro">
+					<img className="bro__img" src="/george.jpg" alt="George"></img>
+					<div className="label">
+						<Heading level={2}>GEORGE</Heading>
 					</div>
 				</Fade>
-				<Fade>
-					<div className="bro">
-						<img className="bro__img" src="/john.jpg" alt="John"></img>
-						<div className="label">
-							<Heading level={2}>JOHN</Heading>
-						</div>
+				<Fade className="bro">
+					<img className="bro__img" src="/john.jpg" alt="John"></img>
+					<div className="label">
+						<Heading level={2}>JOHN</Heading>
 					</div>
 				</Fade>
 			</div>
@@ -342,22 +347,31 @@ const Bros = () => {
 
 				.bro-cont {
 					display: flex;
-					justify-content: space-between;
 					width: 100%;
+					gap: 0;
 				}
 
-				.bro {
-					width: 32%;
+				/* Width animates reliably; include opacity so Fade does not need an inline transition */
+				.bro-cont :global(.bro) {
+					position: relative;
+					flex: 0 0 auto;
+					width: 33.333%;
 					height: 500px;
-					transition: all .1s ease-in-out;
+					overflow: hidden;
+					transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
 				}
 
-				.bro:hover {
-					width: 35%;
-					transition: all .1s ease-in-out;
+				.bro-cont:hover :global(.bro) {
+					width: 28%;
 				}
 
-				.bro__img {
+				.bro-cont :global(.bro):hover {
+					width: 44%;
+				}
+
+				.bro-cont :global(.bro__img) {
+					position: absolute;
+					inset: 0;
 					display: block;
 					width: 100%;
 					height: 100%;
@@ -365,7 +379,12 @@ const Bros = () => {
 					object-position: center;
 				}
 
-				.label {
+				.bro-cont :global(.label) {
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					z-index: 1;
 					background-color: black;
 					border: ${border};
 				}
@@ -375,14 +394,14 @@ const Bros = () => {
 						flex-direction: column;
 					}
 
-					.bro {
+					.bro-cont :global(.bro),
+					.bro-cont:hover :global(.bro),
+					.bro-cont :global(.bro):hover {
+						flex: none;
 						width: 100%;
-						height: 30%;
+						height: 300px;
 						margin: 25px 0 0 0;
-					}
-
-					.bro:hover {
-						width: 100%;
+						transition: opacity 0.7s ease;
 					}
 				}
 			`}</style>
@@ -396,7 +415,7 @@ const Stream = () => {
 		<>
 			<Section id="connect" title="CONNECT">
 				<div className="logo-cont">
-					<Logos size="50px" scSize="85px" delay={0} spread="35px 35px" />
+					<Logos size="50px" delay={0} spread="35px 35px" />
 				</div>
 			</Section>
 			<style jsx>{`
