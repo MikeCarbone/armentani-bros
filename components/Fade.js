@@ -36,8 +36,7 @@ export default function Fade({ children, delay = 0, className }) {
 			className={className}
 			style={{
 				opacity: visible ? 1 : 0,
-				transform: visible ? 'none' : 'translateY(16px)',
-				transition: 'opacity 0.7s ease, transform 0.7s ease',
+				transition: 'opacity 0.7s ease',
 			}}
 		>
 			{children}

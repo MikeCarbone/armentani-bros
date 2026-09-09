@@ -340,25 +340,23 @@ const Bros = () => {
 					width: 100%;
 				}
 
-				/* Fade root is the flex item — style via :global so layout works */
+				/* Fade root is the flex item — absolute img so faces always cover the card */
 				.bro-cont :global(.bro) {
+					position: relative;
 					width: 32%;
 					height: 500px;
-					display: flex;
-					flex-direction: column;
 					overflow: hidden;
-					transition: all .1s ease-in-out;
+					transition: width .1s ease-in-out;
 				}
 
 				.bro-cont :global(.bro):hover {
 					width: 35%;
-					transition: all .1s ease-in-out;
 				}
 
 				.bro-cont :global(.bro__img) {
+					position: absolute;
+					inset: 0;
 					display: block;
-					flex: 1 1 auto;
-					min-height: 0;
 					width: 100%;
 					height: 100%;
 					object-fit: cover;
@@ -366,6 +364,11 @@ const Bros = () => {
 				}
 
 				.bro-cont :global(.label) {
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					z-index: 1;
 					background-color: black;
 					border: ${border};
 				}
