@@ -313,28 +313,22 @@ const Bros = () => {
 	return (
 		<Section id="the-boys" title="MEET THE BOYS">
 			<div className="bro-cont">
-				<Fade>
-					<div className="bro">
-						<img className="bro__img" src="/jimmie.jpg" alt="Jimmie"></img>
-						<div className="label">
-							<Heading level={2}>JIMMIE</Heading>
-						</div>
+				<Fade className="bro">
+					<img className="bro__img" src="/jimmie.jpg" alt="Jimmie"></img>
+					<div className="label">
+						<Heading level={2}>JIMMIE</Heading>
 					</div>
 				</Fade>
-				<Fade>
-					<div className="bro">
-						<img className="bro__img" src="/george.jpg" alt="George"></img>
-						<div className="label">
-							<Heading level={2}>GEORGE</Heading>
-						</div>
+				<Fade className="bro">
+					<img className="bro__img" src="/george.jpg" alt="George"></img>
+					<div className="label">
+						<Heading level={2}>GEORGE</Heading>
 					</div>
 				</Fade>
-				<Fade>
-					<div className="bro">
-						<img className="bro__img" src="/john.jpg" alt="John"></img>
-						<div className="label">
-							<Heading level={2}>JOHN</Heading>
-						</div>
+				<Fade className="bro">
+					<img className="bro__img" src="/john.jpg" alt="John"></img>
+					<div className="label">
+						<Heading level={2}>JOHN</Heading>
 					</div>
 				</Fade>
 			</div>
@@ -342,22 +336,27 @@ const Bros = () => {
 
 				.bro-cont {
 					display: flex;
-					justify-content: space-between;
 					width: 100%;
+					gap: 0;
 				}
 
-				.bro {
-					width: 32%;
+				/* Fade root is the flex item — flex-grow animates smoother than width */
+				.bro-cont :global(.bro) {
+					position: relative;
+					flex: 1 1 0;
+					min-width: 0;
 					height: 500px;
-					transition: all .1s ease-in-out;
+					overflow: hidden;
+					transition: flex-grow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 				}
 
-				.bro:hover {
-					width: 35%;
-					transition: all .1s ease-in-out;
+				.bro-cont :global(.bro):hover {
+					flex-grow: 1.65;
 				}
 
-				.bro__img {
+				.bro-cont :global(.bro__img) {
+					position: absolute;
+					inset: 0;
 					display: block;
 					width: 100%;
 					height: 100%;
@@ -365,7 +364,12 @@ const Bros = () => {
 					object-position: center;
 				}
 
-				.label {
+				.bro-cont :global(.label) {
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					z-index: 1;
 					background-color: black;
 					border: ${border};
 				}
@@ -375,13 +379,16 @@ const Bros = () => {
 						flex-direction: column;
 					}
 
-					.bro {
+					.bro-cont :global(.bro) {
+						flex: none;
 						width: 100%;
-						height: 30%;
+						height: 300px;
 						margin: 25px 0 0 0;
+						transition: none;
 					}
 
-					.bro:hover {
+					.bro-cont :global(.bro):hover {
+						flex-grow: 1;
 						width: 100%;
 					}
 				}
