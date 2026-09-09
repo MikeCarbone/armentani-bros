@@ -3,8 +3,9 @@ import { useEffect, useRef, useState } from 'react'
 /**
  * Lightweight fade-in replacement for unmaintained react-reveal/Fade.
  * Supports delay (ms) and fades in when the element enters the viewport.
+ * Pass className so flex/layout parents (e.g. Meet the Boys) can size this wrapper.
  */
-export default function Fade({ children, delay = 0 }) {
+export default function Fade({ children, delay = 0, className }) {
 	const ref = useRef(null)
 	const [visible, setVisible] = useState(false)
 
@@ -32,6 +33,7 @@ export default function Fade({ children, delay = 0 }) {
 	return (
 		<div
 			ref={ref}
+			className={className}
 			style={{
 				opacity: visible ? 1 : 0,
 				transform: visible ? 'none' : 'translateY(16px)',

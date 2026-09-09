@@ -313,28 +313,22 @@ const Bros = () => {
 	return (
 		<Section id="the-boys" title="MEET THE BOYS">
 			<div className="bro-cont">
-				<Fade>
-					<div className="bro">
-						<img className="bro__img" src="/jimmie.jpg" alt="Jimmie"></img>
-						<div className="label">
-							<Heading level={2}>JIMMIE</Heading>
-						</div>
+				<Fade className="bro">
+					<img className="bro__img" src="/jimmie.jpg" alt="Jimmie"></img>
+					<div className="label">
+						<Heading level={2}>JIMMIE</Heading>
 					</div>
 				</Fade>
-				<Fade>
-					<div className="bro">
-						<img className="bro__img" src="/george.jpg" alt="George"></img>
-						<div className="label">
-							<Heading level={2}>GEORGE</Heading>
-						</div>
+				<Fade className="bro">
+					<img className="bro__img" src="/george.jpg" alt="George"></img>
+					<div className="label">
+						<Heading level={2}>GEORGE</Heading>
 					</div>
 				</Fade>
-				<Fade>
-					<div className="bro">
-						<img className="bro__img" src="/john.jpg" alt="John"></img>
-						<div className="label">
-							<Heading level={2}>JOHN</Heading>
-						</div>
+				<Fade className="bro">
+					<img className="bro__img" src="/john.jpg" alt="John"></img>
+					<div className="label">
+						<Heading level={2}>JOHN</Heading>
 					</div>
 				</Fade>
 			</div>
@@ -346,18 +340,20 @@ const Bros = () => {
 					width: 100%;
 				}
 
-				.bro {
+				/* Fade root is the flex item — style via :global so layout works */
+				.bro-cont :global(.bro) {
 					width: 32%;
 					height: 500px;
+					overflow: hidden;
 					transition: all .1s ease-in-out;
 				}
 
-				.bro:hover {
+				.bro-cont :global(.bro):hover {
 					width: 35%;
 					transition: all .1s ease-in-out;
 				}
 
-				.bro__img {
+				.bro-cont :global(.bro__img) {
 					display: block;
 					width: 100%;
 					height: 100%;
@@ -365,7 +361,7 @@ const Bros = () => {
 					object-position: center;
 				}
 
-				.label {
+				.bro-cont :global(.label) {
 					background-color: black;
 					border: ${border};
 				}
@@ -375,13 +371,13 @@ const Bros = () => {
 						flex-direction: column;
 					}
 
-					.bro {
+					.bro-cont :global(.bro) {
 						width: 100%;
-						height: 30%;
+						height: 300px;
 						margin: 25px 0 0 0;
 					}
 
-					.bro:hover {
+					.bro-cont :global(.bro):hover {
 						width: 100%;
 					}
 				}
